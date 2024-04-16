@@ -11,7 +11,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def predict(image_path, selectedModel):
-    model_path = selectedModel + '.h5'
+    model_path = 'models/' + selectedModel + '.h5'
     model = load_model(model_path)
     img = keras_image.load_img(image_path, grayscale=False, target_size=(224, 224))
     x = keras_image.img_to_array(img)
